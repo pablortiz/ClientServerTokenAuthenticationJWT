@@ -7,7 +7,7 @@ The features are:
 
 * High users.
 * Authentication of users according to the password Generation JSON Web Tokens.
-* Simple application to show the records of a mysql table (clients) allowing to record modify and delete records associated to the user that is logged in.
+* Simple application to manipulate records of a mysql table (clients) with the MVC design pattern  allowing to record modify and delete records associated to the user that is logged in.
 
 Can test de aplication in this link: <a href="http://54.38.187.177:81/">http://54.38.187.177:81/</a>
 
