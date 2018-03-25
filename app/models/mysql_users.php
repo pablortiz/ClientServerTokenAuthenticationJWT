@@ -11,7 +11,7 @@ class Users
 	*/ 
     public function __construct() {
 		
-		$this->db = new PDO('mysql:host=54.38.187.177;dbname=jwt',"root","Mypi220");		
+		$this->db = new PDO('mysql:host=54.38.187.177;dbname=jwt',"root","");		
 	}
 	/*
 	*/
