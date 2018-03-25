@@ -6,7 +6,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">	
 	<script src="./js/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script> const  URL = 'http://54.38.187.177:81/jwt'; </script>
+	<script> const  URL = 'http://localhost/ClientServerTokenAuthenticationJWT-master'; </script>
 </head>
 <body>
 <div ng-app="app" ng-controller="Main as main" class="container">
@@ -91,7 +91,7 @@
 		/*
 		*/		
 		srvc.register = function (username, password) {	  
-			var url = API + '/controllers/register.php?u='+username+"&p="+password;
+			var url = API + '/jwt/controllers/register.php?u='+username+"&p="+password;
 			$.ajax({url: url ,beforeSend: function( xhr ) {xhr.overrideMimeType( "text/plain; charset=x-user-defined" );}})
 			.done(function( data ) {					
 					var data = data.replace("####", "");	
@@ -101,12 +101,12 @@
 					if(obj["ret"]==1) { $("#ret").removeClass( "alert-warning alert-danger  alert-info" ).addClass( "alert-success" );  }
 					else {				$("#ret").removeClass( "alert-warning alert-success alert-info" ).addClass( "alert-danger" );   }	
 			});
-			return $http.post(API + '/controllers/black.php');
+			return $http.post(API + '/jwt/controllers/black.php');
 		};
 		/*
 		*/		  
 		srvc.login = function (username, password ,auth ) {
-			 var url = API + '/controllers/autentica.php?u='+username+"&p="+password;
+			 var url = API + '/jwt/controllers/autentica.php?u='+username+"&p="+password;
 			console.log(url);
 			$.ajax({url: url ,beforeSend: function( xhr ) {xhr.overrideMimeType( "text/plain; charset=x-user-defined" );}})
 			.done(function( data ) {					
@@ -120,7 +120,7 @@
 							$("#ret").removeClass( "alert-warning alert-success alert-info" ).addClass( "alert-danger" );		
 					}
 			});		
-			return $http.post(API + '/controllers/black.php');
+			return $http.post(API + '/jwt/controllers/black.php');
 		};
 
 	}
