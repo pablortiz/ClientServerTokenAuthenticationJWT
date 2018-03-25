@@ -173,13 +173,15 @@ function setLogin(token)
 	$("#login").css("display","none");
 	$("#register").css("display","none");
 	$("#formLogin").css("display","none");
-	url = URL + '/controllers/verifica.php?t='+token;
+	url = URL + '/jwt/controllers/verifica.php?t='+token;
 	$.ajax({url: url,beforeSend: function( xhr ) { xhr.overrideMimeType( "text/plain; charset=x-user-defined" ); }
 	}).done(function( data ) {
 		 var obj = JSON.parse(data);
 		$("#username").html( obj["username"] + "<br>" + timeConverter(obj["time"]) );
 		if(obj["ret"]==1) { 
-			var url2 = URL + '/index.php?p=controllers/clientes&t='+token;;
+			var url2 = URL + '/jwt/index.php?p=controllers/clientes&t='+token;
+			console.log(url2);
+			
 			$.ajax({url: url2,beforeSend: function( xhr ) { xhr.overrideMimeType( "text/plain; charset=x-user-defined" ); }
 			}).done(function( data ) {
 				$("#ret").attr("style", "display:none");
